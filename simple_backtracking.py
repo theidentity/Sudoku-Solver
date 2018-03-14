@@ -35,17 +35,7 @@ def solveBoard(board,i=0,j=0):
 			board[i][j]=0
 	return False
 
-def printSudokuBoard(board):
-	for i,row in enumerate(board):
-		row_output = ''.join([str(x) if x!=0 else " " for x in row])
-		print ('{} {} {}|'*3).format(*row_output)
-		if i%3==2:
-			print '-'*19
-
-board = [[5,1,7,6,0,0,0,3,4],[2,8,9,0,0,4,0,0,0],[3,4,6,2,0,5,0,9,0],[6,0,2,0,0,0,0,1,0],[0,3,8,0,0,6,0,4,7],[0,0,0,0,0,0,0,0,0],[0,9,0,0,0,0,0,7,8],[7,0,3,4,0,0,5,6,0],[0,0,0,0,0,0,0,0,0]]
-board = np.array(board)
-if solveBoard(board):
-	printSudokuBoard(board)
-else:
-	print "No solution"
-
+def solve(board):
+	if solveBoard(board):
+		return board
+	return None		
